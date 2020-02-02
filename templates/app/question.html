@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+QUESTION
+{% endblock %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+    {% for q in ques %}
+        <a href="{{q.pk}}/">{{ q }}</a><br>
+    {% endfor %}
+{% else %}
+Please login
+{% endif %}
+{% endblock %}

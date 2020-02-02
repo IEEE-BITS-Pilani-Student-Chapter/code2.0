@@ -1,9 +1,17 @@
 {% extends 'base.html' %}
-
+{% load socialaccount %}
 {% block title %}
-INDEX
+HOME
 {% endblock %}
 
 {% block content %}
-hey
+{% if p %}
+Hey! <br>
+{{p.name}} <br>
+{{p.user.email}} <br>
+<a href="{% url 'ques' %}">START</a>
+{% else %}
+{{error}}
+<a href="{% provider_login_url 'google' %}">LOGIN WITH BITS ID</a>
+{% endif %}
 {% endblock %}

@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import Question, Participant, Solution
 
-# Register your models here.
+admin.site.register(Participant)
+admin.site.register(Question)
+admin.site.register(Solution)

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+SOLUTION
+{% endblock %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+    {{ques}} <br>
+    {{ques.text}}
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Submit</button>
+    </form>
+{% else %}
+Please login
+{% endif %}
+{% endblock %}
